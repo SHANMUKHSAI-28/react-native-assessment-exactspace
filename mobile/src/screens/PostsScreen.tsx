@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { PostCard } from '../components/PostCard';
+import { SearchHistory } from '../components/SearchHistory';
 import { SearchInput } from '../components/SearchInput';
 import { StateMessage } from '../components/StateMessage';
 import { usePersistedSearch } from '../hooks/usePersistedSearch';
@@ -15,7 +16,7 @@ import { usePosts } from '../hooks/usePosts';
 
 export function PostsScreen() {
   const { posts, isLoading, isRefreshing, errorMessage, refresh } = usePosts();
-  const { searchText, setSearchText } = usePersistedSearch();
+  const { searchText, setSearchText, history, clearHistory } = usePersistedSearch();
 
   const filteredPosts = useMemo(() => {
     const query = searchText.trim().toLowerCase();
@@ -33,6 +34,11 @@ export function PostsScreen() {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <SearchInput value={searchText} onChangeText={setSearchText} />
+        <SearchHistory
+          items={history}
+          onSelect={setSearchText}
+          onClear={clearHistory}
+        />
 
         {isLoading ? (
           <View style={styles.center}>

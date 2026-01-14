@@ -23,6 +23,7 @@ Then:
 - Display `title` + `body` in a `FlatList`
 - Real-time, case-insensitive search by title
 - Persist search text using AsyncStorage and restore it on restart
+- Persist recent search history (chips) using AsyncStorage
 - Error state: “Unable to fetch posts. Check your network connection.”
 - Empty search state: “No posts found.”
 - Bonus: loading indicator and pull-to-refresh

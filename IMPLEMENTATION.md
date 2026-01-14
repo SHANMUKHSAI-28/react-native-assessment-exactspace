@@ -8,6 +8,7 @@ Build a React Native application that:
 - Displays them in a `FlatList` (title + body)
 - Filters posts by title in real time as the user types (case-insensitive)
 - Persists the user’s latest search text using AsyncStorage and restores it on app restart
+- Persists a small recent search history list (optional enhancement) to quickly re-apply past searches
 - Handles API failures and empty search results states
 
 This document describes an *exact*, buildable implementation approach: folder structure, modules, state flow, UI states, and acceptance criteria.
@@ -85,10 +86,16 @@ Define:
 ## 6) Storage Contract
 ### Key
 - `SEARCH_TEXT_KEY = 'searchText'` (single key)
+- `SEARCH_HISTORY_KEY = 'searchHistory'` (JSON array of strings)
 
 ### Behavior
 - On every search text change, persist the value to AsyncStorage.
 - On app startup, load it once and set it as initial search text.
+
+Recent history behavior (enhancement):
+- Maintain a list of up to N recent search strings (deduped case-insensitively).
+- Persist the history list to AsyncStorage.
+- Show history as tappable chips under the search input.
 
 Notes:
 - Persisting on every keystroke is acceptable for this assessment.
