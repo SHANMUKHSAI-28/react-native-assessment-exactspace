@@ -1,33 +1,24 @@
-# react-native-assessment-exactspace
-React Native assessment application for ExactSpace. The app fetches posts from a public API, supports real-time search with AsyncStorage persistence, and includes proper error handling and clean component structure.
+# React Native Assessment – ExactSpace
 
-## Run the app
+## Overview
+React Native mobile application that fetches posts from a public API, supports real-time search, and persists search text using AsyncStorage.
 
-The React Native app lives in `mobile/` (Expo + TypeScript).
+## Features
+- Fetch and display posts
+- Case-insensitive real-time search
+- Persisted search using AsyncStorage
+- Error and empty states
+- Clean component-based structure
 
-Prereqs:
-- Node.js LTS
-- Expo Go installed on your phone (recommended), or Android Studio emulator
+## Tech Stack
+- React Native
+- TypeScript (if used)
+- AsyncStorage
+- Fetch API
 
-Commands:
-1. `cd mobile`
-2. `npm install`
-3. `npm run start`
-
-Then:
-- Scan the QR code with Expo Go, or
-- Press `a` for Android emulator, or `w` for web.
-
-## Features implemented
-- Fetch posts from `https://jsonplaceholder.typicode.com/posts`
-- Display `title` + `body` in a `FlatList`
-- Real-time, case-insensitive search by title
-- Persist search text using AsyncStorage and restore it on restart
-- Persist recent search history (chips) using AsyncStorage
-- Error state: “Unable to fetch posts. Check your network connection.”
-- Empty search state: “No posts found.”
-- Bonus: loading indicator and pull-to-refresh
+## Architecture
+Client-side React Native app consuming a public REST API (JSONPlaceholder).
+Search state is persisted locally on device using AsyncStorage.
 
 ## Notes
-- The post content is expected “random” placeholder text because JSONPlaceholder returns sample lorem ipsum.
-- You may see a console warning about `SafeAreaView` deprecation (from React Native). It does not affect functionality.
+AI-assisted tools (e.g., GitHub Copilot) were used for development. All code was reviewed and understood by me.
